@@ -92,6 +92,7 @@ input,textarea,select{border:1px solid #ecd9de;background:#fffefd;border-radius:
 #receipt,#receipt-overview{filter:drop-shadow(0 6px 10px #ab6b841b)}#receipt{width:100%;max-width:none}.receipt-wrap{width:380px;max-width:100%;position:relative;margin:auto}.avatar-hit{position:absolute;background:transparent;border:0;border-radius:50%;padding:0;touch-action:none;cursor:grab;z-index:2;min-height:0}.avatar-hit:hover,.avatar-hit:focus-visible{outline:2px dashed #ee739c;outline-offset:3px}.avatar-hit:active{cursor:grabbing}.avatar-mode{display:flex;gap:8px;margin:12px 0}.avatar-mode button{flex:1;padding:8px 6px;font-size:12px;min-height:36px}.avatar-mode button[aria-pressed=true]{background:#fbd9e5;border-color:#e690af;color:#a53965}.frame-options{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:10px}.frame-options .field{flex:1;min-width:60px;margin:0}.frame-options input{padding:7px;font-size:12px}.frame-options .field>span{font-size:12px}.frame-options .button{width:100%}
 .skin-caption{font-size:11px;color:#b7889b;margin-right:auto}.preview-split{grid-template-columns:minmax(100px,.7fr) minmax(0,1.65fr);gap:10px}.preview-top{gap:12px}
 header>.header-right{grid-column:1 / -1}.editor>h1{margin-bottom:24px}
+.font-section{padding:0 0 24px;border:0}.font-choice+.font-choice{margin-top:13px}.font-upload{background:linear-gradient(135deg,#fff1f6,#fff9dc);border-style:solid;border-color:#efb6ca;min-height:68px;padding:12px 14px}.font-upload .upload-icon{font-size:20px}.font-upload strong em{font-style:normal;color:#ca527c;margin-left:6px}.font-meta{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:6px;padding:0 3px}.font-status{font-size:12px;color:#a16f82;overflow-wrap:anywhere}.font-section .link-button{flex-shrink:0}
 @media(min-width:851px){.editor{scrollbar-color:#e6bccb #fffaf5}.workspace{grid-template-columns:minmax(410px,.94fr) minmax(0,1.3fr)}}
 @media(max-width:850px){header{padding:16px 20px}.preview-inner{height:850px;max-height:100dvh;min-height:650px}.preview-split{grid-template-columns:minmax(80px,.55fr) minmax(0,1.65fr)}.skin-caption{display:none}.header-right{gap:8px}#skin-toggle{min-width:155px}.receipt-wrap{width:420px}}
 @media(max-width:480px){.header-right{justify-content:space-between}.brand-name{font-size:22px}.editor{padding:26px 16px}.preview-split{grid-template-columns:65px minmax(0,1fr);gap:4px}.preview-inner{padding:22px 8px 18px}.overview-stage{padding:3px}.preview-label{font-size:10px}.preview-overview .preview-label{font-size:10px}.receipt-stage{padding:8px 3px 18px;scrollbar-gutter:auto}.avatar-controls{gap:12px}.preview-top{padding:0 10px}.item-labels,.item-row{grid-template-columns:minmax(65px,1fr) 55px 88px 22px}.item-row input{font-size:12px}.item-row .amount-wrap input{padding-right:6px}.preview-top .live{font-size:9px}}
@@ -292,7 +293,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
 <svg style="display:none" xmlns="http://www.w3.org/2000/svg"><symbol id="download" viewBox="0 0 24 24"><path d="M12 3v12m-5-5 5 5 5-5M5 15v5h14v-5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol><symbol id="calc" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 7h8M8 11h2m4 0h2m-8 4h2m4 0h2" stroke="currentColor" stroke-width="1.5"/></symbol><symbol id="trash" viewBox="0 0 24 24"><path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13M10 10v7m4-7v7" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></symbol></svg>
 <header><div class="header-right"><span class="auto-hint"><svg aria-hidden="true"><use href="#calc"/></svg>自动计算金额</span><button type="button" class="button" id="skin-toggle" aria-pressed="false" title="切换经典白底 / 可爱风">✿ 皮肤：经典白底</button><input type="hidden" id="receipt-skin" value="classic"><button type="button" class="button primary" id="reset">一键重置</button></div></header>
 <main class="workspace">
-<div class="editor" role="region" aria-label="小票编辑" tabindex="0"><div class="page-kicker">THE RECEIPT STUDIO</div><h1>小票生成器</h1><input type="hidden" id="currency" value="CNY"><div class="mobile-hint" hidden><svg aria-hidden="true"><use href="#calc"/></svg>自动计算金额</div>
+<div class="editor" role="region" aria-label="小票编辑" tabindex="0"><div class="page-kicker">THE RECEIPT STUDIO</div><h1>小票生成器</h1><section class="section font-section"><div class="section-head"><h2><span class="section-no">00</span>自定义字体</h2><span class="optional">分别应用到对应文字</span></div><div class="font-choice"><label class="upload font-upload" id="title-font-upload-zone"><input type="file" id="title-font-input" accept=".ttf,.otf,.woff,.woff2,font/ttf,font/otf,font/woff,font/woff2"><span class="upload-icon" aria-hidden="true">大</span><span><strong>上传字体 <em>大标题</em></strong><small>应用到小票抬头名称</small></span><span class="upload-end">＋</span></label><div class="font-meta"><span class="font-status" id="title-font-status">大标题使用模板字体</span><button type="button" id="title-font-remove" class="link-button" hidden>恢复模板字体</button></div></div><div class="font-choice"><label class="upload font-upload" id="subtitle-font-upload-zone"><input type="file" id="subtitle-font-input" accept=".ttf,.otf,.woff,.woff2,font/ttf,font/otf,font/woff,font/woff2"><span class="upload-icon" aria-hidden="true">小</span><span><strong>上传字体 <em>小标题</em></strong><small>应用到小票副标题文字</small></span><span class="upload-end">＋</span></label><div class="font-meta"><span class="font-status" id="subtitle-font-status">小标题使用模板字体</span><button type="button" id="subtitle-font-remove" class="link-button" hidden>恢复模板字体</button></div></div><div class="font-choice"><label class="upload font-upload" id="font-upload-zone"><input type="file" id="font-input" accept=".ttf,.otf,.woff,.woff2,font/ttf,font/otf,font/woff,font/woff2"><span class="upload-icon" aria-hidden="true">文</span><span><strong>上传字体 <em>正文</em></strong><small>署名、项目、金额、合计、备注与页脚</small></span><span class="upload-end">＋</span></label><div class="font-meta"><span class="font-status" id="font-status">正文使用模板字体</span><button type="button" id="font-remove" class="link-button" hidden>恢复模板字体</button></div></div></section><input type="hidden" id="currency" value="CNY"><div class="mobile-hint" hidden><svg aria-hidden="true"><use href="#calc"/></svg>自动计算金额</div>
 <section class="section"><div class="section-head"><h2><span class="section-no">01</span>小票抬头</h2><span class="optional">插画图片区 · 支持替换</span></div><label class="upload" id="upload-zone"><input type="file" id="image-input" accept="image/png,image/jpeg,image/webp"><span class="upload-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8" cy="8" r="1.5"/><path d="m3 17 6-6 4 4 3-3 5 5"/></svg></span><span><strong id="upload-text">上传顶部图片</strong><small>PNG、JPG、WebP · 图片等比适应票宽</small></span><span class="upload-end">＋</span></label><button id="remove-image" class="link-button" hidden>移除图片</button><label class="field"><span>抬头名称</span><input id="title" value="XX电竞" maxlength="120" placeholder="输入小票抬头"></label><label class="field"><span>副标题文字</span><input id="subtitle" value="结单小票" maxlength="120" placeholder="输入副标题，留空则隐藏"></label></section>
 <section class="section"><div class="section-head"><h2>署名</h2></div><label class="field"><span>老板署名 · 居中</span><input id="boss-sign" value="老板署名" maxlength="120" placeholder="留空隐藏"></label><label class="field"><span>署名 · 居中</span><input id="signature" value="" maxlength="120" placeholder="留空隐藏"></label></section>
 <section class="section"><div class="section-head"><h2><span class="section-no">02</span>项目明细</h2><span class="optional" id="item-count">3 个项目</span></div><div class="item-labels"><span>项目名称</span><span>时长</span><span id="amount-label">金额 / CNY</span><span></span></div><div id="items"></div><button class="button add-item" id="add-item"><span aria-hidden="true">＋</span>添加一个项目</button></section>
@@ -1030,14 +1031,14 @@ function render(){
   if($('receipt-skin').value==='cute'){renderCute(checks,totals,good);return}
   const W=420,S=W/600,sx=x=>x*S,pad=34,inner=W-pad*2,ops=[],fg='#191919',muted='#777';let y=60;
  avatarHitboxes=[];
- const f=(size=14,bold=false)=>`${bold?'bold ':''}${size}px ReceiptSerif, serif`;
- const tx=(s,x,yy,size=14,align='left',color=fg,bold=false,baseline='alphabetic')=>ops.push(()=>{ctx.save();ctx.font=f(size,bold);ctx.fillStyle=color;ctx.textAlign=align;ctx.textBaseline=baseline;ctx.fillText(s,x,yy);ctx.restore()});
- const block=(s,size,width=inner,align='center',color=fg,bold=false,gap=1.5)=>{for(const l of wrapText(s,width,f(size,bold))){tx(l,align==='center'?W/2:pad,y+size,size,align,color,bold);y+=size*gap}};
+ const f=(size=14,bold=false,role='body')=>`${bold?'bold ':''}${size}px ${activeReceiptFontFor(role,'ReceiptSerif, serif')}`;
+ const tx=(s,x,yy,size=14,align='left',color=fg,bold=false,baseline='alphabetic',role='body')=>ops.push(()=>{ctx.save();ctx.font=f(size,bold,role);ctx.fillStyle=color;ctx.textAlign=align;ctx.textBaseline=baseline;fillReceiptText(s,x,yy,bold,size,customReceiptFontActive(role));ctx.restore()});
+ const block=(s,size,width=inner,align='center',color=fg,bold=false,gap=1.5,role='body')=>{for(const l of wrapText(s,width,f(size,bold,role))){tx(l,align==='center'?W/2:pad,y+size,size,align,color,bold,'alphabetic',role);y+=size*gap}};
  const rule=(yy,strong=false)=>{ops.push(()=>{ctx.setLineDash(strong?[]:[3,4]);strokePath([[pad,yy],[W-pad,yy]],muted,strong?1:.6);ctx.setLineDash([])})};
   const imageBlock=(img,maxW=inner,maxH=Infinity,gap=24)=>{if(!img)return;let w=Math.min(maxW,maxH*img.width/img.height),h=w*img.height/img.width,yy=y;ops.push(()=>ctx.drawImage(img,(W-w)/2,yy,w,h));y+=h+gap};
  imageBlock(state.image);
-  if($('title').value.trim()){block($('title').value.trim(),30,inner,'center',fg,true,1.4);y+=8}
- if($('subtitle').value.trim()){block($('subtitle').value.trim(),18,inner,'center','#777',false,1.5);y+=10}
+  if($('title').value.trim()){block($('title').value.trim(),30,inner,'center',fg,true,1.4,'title');y+=8}
+ if($('subtitle').value.trim()){block($('subtitle').value.trim(),18,inner,'center','#777',false,1.5,'subtitle');y+=10}
   rule(y);y+=25;
   let hasSignature=false;for(const id of ['boss-sign','signature']){const s=$(id).value.trim();if(s){hasSignature=true;block(s,16,inner,'center',fg,false,1.6);const yy=y+2;ops.push(()=>{strokePath([[sx(210),yy],[sx(390),yy]],muted,.8)});y+=22}}if(hasSignature)y+=20;
  // Shared column centers keep headers, wrapped names, durations and amounts aligned.
@@ -1130,7 +1131,9 @@ document.querySelector('.overview-stage').addEventListener('wheel',event=>event.
 document.querySelectorAll('.recenter').forEach(b=>b.addEventListener('click',()=>{const k=b.dataset.key;$(k+'-scale').value='1';$(k+'-x').value='0';$(k+'-y').value='0';render()}));
 // All decorative artwork is drawn with vector paths; uploads remain independent.
 const cutePalette={pink:'#fa76a5',deep:'#d33b73',pale:'#ffdeea',yellow:'#ffeaa1',ink:'#84263e'};
-const roundFont=(size,bold=false)=>`${bold?'bold ':''}${size}px ReceiptRound, "Microsoft YaHei", sans-serif`;
+const roundFont=(size,bold=false)=>`${bold?'bold ':''}${size}px ${activeReceiptFont('ReceiptRound, "Microsoft YaHei", sans-serif')}`;
+const titleFont=(size,bold=false)=>`${bold?'bold ':''}${size}px ${activeTitleFont('ReceiptRound, "Microsoft YaHei", sans-serif')}`;
+const subtitleFont=(size,bold=false)=>`${bold?'bold ':''}${size}px ${activeSubtitleFont('ReceiptRound, "Microsoft YaHei", sans-serif')}`;
 function rounded(x,y,w,h,r,fill,stroke,lw=1){ctx.beginPath();ctx.roundRect(x,y,w,h,r);if(fill){ctx.fillStyle=fill;ctx.fill()}if(stroke){ctx.strokeStyle=stroke;ctx.lineWidth=lw;ctx.stroke()}}
 function dot(x,y,r,c){ctx.beginPath();ctx.arc(x,y,r,0,Math.PI*2);ctx.fillStyle=c;ctx.fill()}
 function star(x,y,r,fill='#ffe99d',stroke='#ffc768',rotation=0){ctx.save();ctx.translate(x,y);ctx.rotate(rotation);const points=Array.from({length:10},(_,i)=>{const a=-Math.PI/2+i*Math.PI/5,rr=i%2?r*.57:r;return [Math.cos(a)*rr,Math.sin(a)*rr]});ctx.beginPath();const last=points[9],first=points[0];ctx.moveTo((last[0]+first[0])/2,(last[1]+first[1])/2);for(let i=0;i<10;i++){const p=points[i],next=points[(i+1)%10];ctx.quadraticCurveTo(p[0],p[1],(p[0]+next[0])/2,(p[1]+next[1])/2)}ctx.closePath();ctx.lineJoin='round';ctx.lineWidth=5;ctx.strokeStyle='#fffdf7';ctx.stroke();ctx.fillStyle=fill;ctx.fill();ctx.lineWidth=1.7;ctx.strokeStyle=stroke;ctx.stroke();ctx.restore()}
@@ -1184,7 +1187,7 @@ function cloudBadge(x,y,w,h){
  ctx.restore();
 }
 function candyTitle(s,x,baseline,size){
- ctx.save();ctx.font=roundFont(size,true);ctx.textAlign='center';ctx.textBaseline='alphabetic';ctx.lineJoin='round';ctx.miterLimit=2;
+ ctx.save();ctx.font=titleFont(size,true);ctx.textAlign='center';ctx.textBaseline='alphabetic';ctx.lineJoin='round';ctx.miterLimit=2;
  // A cream sticker rim, rose outline and a small lower edge give the letters depth.
  ctx.strokeStyle='#fffdf3';ctx.lineWidth=7;ctx.strokeText(s,x,baseline+1.8);
  ctx.strokeStyle='#e45d94';ctx.lineWidth=3.4;ctx.strokeText(s,x,baseline+1.8);
@@ -1201,14 +1204,14 @@ function cuteAvatar(cx,cy,r,img,key,index){
 }
 function renderCute(checks,totals,good){
  const W=420,pad=53,inner=W-pad*2,ops=[];let y=52;avatarHitboxes=[];
- const text=(s,x,yy,size=16,align='left',color=cutePalette.ink,bold=false)=>ops.push(()=>{ctx.font=roundFont(size,bold);ctx.textAlign=align;ctx.textBaseline='alphabetic';ctx.fillStyle=color;ctx.fillText(s,x,yy)});
+ const text=(s,x,yy,size=16,align='left',color=cutePalette.ink,bold=false)=>ops.push(()=>{ctx.font=roundFont(size,bold);ctx.textAlign=align;ctx.textBaseline='alphabetic';ctx.fillStyle=color;fillReceiptText(s,x,yy,bold,size)});
  const block=(s,size,width=inner,align='left',color=cutePalette.ink,bold=false,lh=1.55)=>{for(const line of wrapText(s,width,roundFont(size,bold))){text(line,align==='center'?210:pad,y+size,size,align,color,bold);y+=size*lh}};
  const rule=yy=>ops.push(()=>cuteRule(yy));
  const art=(img,footer=false,scale=1)=>{if(!img)return;const yy=y;ops.push(()=>framedArt(img,yy,footer,scale));y+=framedImageSize(img,scale).h+21};
  art(state.image);
  const title=$('title').value.trim(),subtitle=$('subtitle').value.trim();
  if(title||subtitle){
- const titleSize=58,lines=title?wrapText(title,260,roundFont(titleSize,true)):[],subLines=subtitle?wrapText(subtitle,235,roundFont(22,true)):[];
+ const titleSize=58,lines=title?wrapText(title,260,titleFont(titleSize,true)):[],subLines=subtitle?wrapText(subtitle,235,subtitleFont(22,true)):[];
  const hh=Math.max(123,lines.length*70+(subLines.length?subLines.length*29+15:14)+19),yy=y;
  const badgeW=310,badgeX=55;
  ops.push(()=>{
@@ -1220,7 +1223,7 @@ function renderCute(checks,totals,good){
   if(subLines.length){const by=yy+lines.length*70+9,bh=subLines.length*29+5,g=ctx.createLinearGradient(88,by,333,by);g.addColorStop(0,'#ffb4d6');g.addColorStop(.5,'#ff91c4');g.addColorStop(1,'#ffacd2');rounded(87,by,246,bh,Math.min(14,bh/2),g,'#fff',1.4);}
  });
  lines.forEach((line,i)=>ops.push(()=>candyTitle(line,210,yy+62+i*70,titleSize)));
- subLines.forEach((line,i)=>text(line,210,yy+lines.length*70+34+i*29,22,'center','#fff',true));
+ subLines.forEach((line,i)=>ops.push(()=>{ctx.font=subtitleFont(22,true);ctx.textAlign='center';ctx.textBaseline='alphabetic';ctx.fillStyle='#fff';fillReceiptText(line,210,yy+lines.length*70+34+i*29,true,22,state.customSubtitleFontFace)}));
  y=yy+hh+20;
  }
 
@@ -1294,6 +1297,50 @@ document.querySelectorAll('.avatar-hit').forEach(handle=>{
  const end=()=>{drag=null};handle.addEventListener('pointerup',end);handle.addEventListener('pointercancel',end);handle.addEventListener('lostpointercapture',end);
  handle.addEventListener('keydown',e=>{const delta={ArrowLeft:[-1,0],ArrowRight:[1,0],ArrowUp:[0,-1],ArrowDown:[0,1]}[e.key];if(!delta)return;e.preventDefault();const hit=avatarHitboxes.find(h=>h.key===handle.dataset.key),step=e.shiftKey?10:2;moveAvatar(hit,Number($(hit.key+'-x').value)+delta[0]*step,Number($(hit.key+'-y').value)+delta[1]*step)});
 });
+
+const customFontSlots={
+ body:{family:'ReceiptCustom',state:'customFontFace',input:'font-input',zone:'font-upload-zone',status:'font-status',remove:'font-remove',storage:'custom-font',label:'正文'},
+ title:{family:'ReceiptCustomTitle',state:'customTitleFontFace',input:'title-font-input',zone:'title-font-upload-zone',status:'title-font-status',remove:'title-font-remove',storage:'custom-title-font',label:'大标题'},
+ subtitle:{family:'ReceiptCustomSubtitle',state:'customSubtitleFontFace',input:'subtitle-font-input',zone:'subtitle-font-upload-zone',status:'subtitle-font-status',remove:'subtitle-font-remove',storage:'custom-subtitle-font',label:'小标题'}
+};
+const customFontFaces={body:null,title:null,subtitle:null},customFontRequests={body:0,title:0,subtitle:0};
+for(const slot of Object.values(customFontSlots))state[slot.state]=false;
+const activeReceiptFontFor=(role,fallback)=>{const slot=customFontSlots[role]||customFontSlots.body;return state[slot.state]?slot.family+', '+fallback:fallback};
+const activeReceiptFont=fallback=>activeReceiptFontFor('body',fallback);
+const activeTitleFont=fallback=>activeReceiptFontFor('title',fallback);
+const activeSubtitleFont=fallback=>activeReceiptFontFor('subtitle',fallback);
+const customReceiptFontActive=role=>!!state[(customFontSlots[role]||customFontSlots.body).state];
+function fillReceiptText(value,x,y,bold,size,customActive=state.customFontFace){
+ if(customActive&&bold){ctx.save();ctx.strokeStyle=ctx.fillStyle;ctx.lineJoin='round';ctx.lineWidth=Math.max(.65,size*.035);ctx.strokeText(value,x,y);ctx.restore()}
+ ctx.fillText(value,x,y);
+}
+function updateCustomFontUI(role,name=''){
+ const slot=customFontSlots[role];$(slot.status).textContent=name?'已使用：'+name:slot.label+'使用模板字体';$(slot.remove).hidden=!name;$(slot.input).value='';
+}
+async function installCustomFont(role,blob,name,persist=true){
+ const slot=customFontSlots[role],request=++customFontRequests[role];
+ if(!blob||blob.size>20*1024*1024){toast('字体文件请控制在 20 MB 以内。');return}
+ if(!/\.(ttf|otf|woff2?)$/i.test(name)){toast('请上传 TTF、OTF、WOFF 或 WOFF2 字体。');return}
+ try{
+  const face=new FontFace(slot.family,await blob.arrayBuffer(),{style:'normal',weight:'400'});await face.load();if(request!==customFontRequests[role])return;
+  document.fonts.add(face);if(customFontFaces[role])document.fonts.delete(customFontFaces[role]);customFontFaces[role]=face;state[slot.state]=true;updateCustomFontUI(role,name);render();
+  if(persist)try{await imageStorage('readwrite',store=>store.put({blob,name},slot.storage))}catch{storageWarning()}
+ }catch{if(request===customFontRequests[role])toast('字体无法读取，请换一个字体文件。')}
+}
+function removeCustomFont(role,renderAfter=true){
+ const slot=customFontSlots[role];customFontRequests[role]++;if(customFontFaces[role])document.fonts.delete(customFontFaces[role]);customFontFaces[role]=null;state[slot.state]=false;updateCustomFontUI(role);if(renderAfter)render();
+}
+async function restoreCustomFont(role){
+ const slot=customFontSlots[role];try{const saved=await imageStorage('readonly',store=>store.get(slot.storage));if(saved?.blob)await installCustomFont(role,saved.blob,saved.name||slot.label+'字体',false)}catch{storageWarning()}
+}
+for(const [role,slot] of Object.entries(customFontSlots)){
+ $(slot.input).addEventListener('change',event=>{const file=event.target.files[0];if(file)installCustomFont(role,file,file.name)});
+ $(slot.zone).addEventListener('dragover',event=>event.preventDefault());
+ $(slot.zone).addEventListener('drop',event=>{event.preventDefault();const file=event.dataTransfer.files[0];if(file)installCustomFont(role,file,file.name)});
+ $(slot.remove).addEventListener('click',()=>{removeCustomFont(role);imageStorage('readwrite',store=>store.delete(slot.storage)).catch(storageWarning)});
+ restoreCustomFont(role);
+}
+$('reset').addEventListener('click',()=>{for(const role of Object.keys(customFontSlots))removeCustomFont(role,false)});
 
 $('note').value=$('note').value.replaceAll('\\n','\n');
 const defaults={fields:readFields(),items:state.items.map(item=>({...item}))};
